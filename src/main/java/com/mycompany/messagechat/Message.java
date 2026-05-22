@@ -46,6 +46,13 @@ public class Message {
         return "HASH:" + messageNumber + ":" + first.toUpperCase() + ":" + last.toUpperCase();
     }
     
+       public String storeMessage() {
+        return String.format(
+            "{\n  \"id\": \"%s\",\n  \"cell\": \"%s\",\n  \"body\": \"%s\",\n  \"checksum\": \"%s\"\n}",
+            messageId, recCell, txt, createMessageHash()
+        );
+    }
+    
  
     
     public int getMessageNumber() { return messageNumber; }
