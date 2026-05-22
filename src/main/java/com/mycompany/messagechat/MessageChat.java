@@ -176,6 +176,13 @@ public class MessageChat {
         }
         System.out.println("\nTotal messages sent in this session: " + sentCount);
     }
-    
+    private static void messageToJsonFile(String jsonContent) {
+        try (FileWriter fileOut = new FileWriter("messages.json", true)) {
+            fileOut.write(jsonContent + "\n");
+            System.out.println("Message successfully stored.");
+        } catch (IOException error) {
+            System.out.println("Error storing JSON: " + error.getMessage());
+        }
+    }
     
 }
